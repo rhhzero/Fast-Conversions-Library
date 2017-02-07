@@ -1,4 +1,10 @@
 
+No Allocations Conversions Library (NACL)
+
+By: Roy Hwang
+
+Target Framework: .NET 4.6
+
 ============================
 About:
 ============================
@@ -31,6 +37,11 @@ add error checks to each of these methods yourself.
 Let me state it again: THERE ARE NO DEFAULT ERROR CHECKS! You should implement them yourself 
 in the likely event that you will need them. I feel it is better this way since you can implement 
 only what you require.
+
+Also, you'll find that some of the methods make use of the "[MethodImpl(MethodImplOptions.AggressiveInlining)]" hint. 
+If you are targeting a framework in your own project which does not support this, you can simply remove the 
+attribute, and either leave the method as is or manually inline it yourself (you should consider the ramifications 
+of forcing an inlined method before implementing it).
 
 Have fun! And don't forget to profile any changes!!!
 
