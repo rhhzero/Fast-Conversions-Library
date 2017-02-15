@@ -7,8 +7,8 @@
     <ProjectGuid>{81D4C6E8-D1F7-4CB1-AA41-BFBF63AC5FFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NACL</RootNamespace>
-    <AssemblyName>NACL</AssemblyName>
+    <RootNamespace>FCL</RootNamespace>
+    <AssemblyName>FCL</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

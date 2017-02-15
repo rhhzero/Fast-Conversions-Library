@@ -1,23 +1,23 @@
-﻿/* NACL by Roy Hwang * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+﻿/* FCL by Roy Hwang * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  * 
  * =====================
  * About:
  * =====================
  * 
- * This is the No Allocations Conversions Library, or NACL! The primary purpose of this 
- * library is to allow for type conversions without needless allocations, as many of the 
- * .NET methods do (ToString being a popular example). This is pretty important for 
+ * This is the Fast Conversions Library, or FCL! The primary purpose of this 
+ * library is to allow for type conversions without needless allocations, and providing 
+ * faster functions for doing so. This is pretty important for 
  * applications and platforms where you must focus heavily on alleviating garbage 
- * collector pressure, such as in a video game.
+ * collector pressure, and maintain a high baseline performance level, such as a video game.
  * 
  * While modern garbage collectors are quite excellent, not everyone has the luxury 
  * of working on a platform or hardware set where these collectors are available. 
- * Enter NACL!
+ * Enter FCL!
  * 
- * Avoiding allocations help to avoid garbage collector spikes, but also increase 
- * the performance of your code in critical sections, since allocations are not 
- * a free operation. In fact, they can be quite costly and can often be the bottleneck 
- * in a tight and unoptimized loop which allocates on each iteration.
+ * This library can help to avoid garbage collector spikes by being smart with allocations, 
+ * and also by increasing the performance of your code in critical sections. The C# .NET 
+ * standard library is generally excellent at avoiding needless allocations, but also 
+ * can be quite a bit slower than a hand-rolled implementation of your own.
  * 
  * My hope is that you find this library useful for your needs, as I've designed it 
  * particularly with performance in mind (which is why there are so many variations 
