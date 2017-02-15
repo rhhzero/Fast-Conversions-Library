@@ -6,9 +6,9 @@ By: Roy Hwang
 Target Framework: .NET 4.6
 
 
- =====================
- About:
- =====================
+===================================
+About:
+===================================
 
 This is the Fast Conversions Library, or FCL! The primary purpose of this 
 library is to allow for type conversions without needless allocations, and providing 
@@ -41,8 +41,6 @@ If you are targeting a framework in your own project which does not support this
 attribute, and either leave the method as is or manually inline it yourself (you should consider the ramifications 
 of forcing an inlined method before implementing it).
 
-Have fun! And don't forget to profile any changes!!!
+Have fun! And don't forget to profile any changes!!! Not all substitutions will be faster for every machine!
 
 Criticism, improvements, and suggestions are always welcome.
-
-- Roy Hwang
