@@ -34,7 +34,7 @@
 
 using System.Runtime.CompilerServices;
 
-namespace NACL
+namespace FCL
 {
     /// <summary>
     /// Convert a char to another type.

@@ -35,7 +35,7 @@
 using System.Text;
 using System.Runtime.CompilerServices;
 
-namespace NACL
+namespace FCL
 {
     /// <summary>
     /// Convert a number to another type.
