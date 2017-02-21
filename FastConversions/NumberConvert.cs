@@ -925,5 +925,491 @@ namespace FCL
             charArray[index] = '\0';
         }
 
+        /// <summary>
+        /// <para>Manipulates an existing string to convert an integer, while avoiding expensive memory allocations.</para>
+        /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
+        /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
+        /// </summary>
+        public static unsafe void IntToStringNoAlloc(ref string mutable, int number) {
+            fixed (char* cPointer = mutable)
+            {
+                char* p = cPointer;
+
+                // Account for negative range
+                if (number < 0)
+                {
+                    *p = '-';
+                    ++p;
+                }
+
+                // Listed in the comments is the digit's place
+                if (number >= 1000000000)
+                {
+                    // 10.
+                    *p = (char)((number / 1000000000) + 48);
+                    number %= 1000000000;
+                    ++p;
+                }
+                if (number >= 100000000)
+                {
+                    // 9.
+                    *p = (char)((number / 100000000) + 48);
+                    number %= 100000000;
+                    ++p;
+                }
+                if (number >= 10000000)
+                {
+                    // 8.
+                    *p = (char)((number / 10000000) + 48);
+                    number %= 10000000;
+                    ++p;
+                }
+                if (number >= 1000000)
+                {
+                    // 7.
+                    *p = (char)((number / 1000000) + 48);
+                    number %= 1000000;
+                    ++p;
+                }
+                if (number >= 100000)
+                {
+                    // 6.
+                    *p = (char)((number / 100000) + 48);
+                    number %= 100000;
+                    ++p;
+                }
+                if (number >= 10000)
+                {
+                    // 5.
+                    *p = (char)((number / 10000) + 48);
+                    number %= 10000;
+                    ++p;
+                }
+                if (number >= 1000)
+                {
+                    // 4.
+                    *p = (char)((number / 1000) + 48);
+                    number %= 1000;
+                    ++p;
+                }
+                if (number >= 100)
+                {
+                    // 3.
+                    *p = (char)((number / 100) + 48);
+                    number %= 100;
+                    ++p;
+                }
+                if (number >= 10)
+                {
+                    // 2.
+                    *p = (char)((number / 10) + 48);
+                    number %= 10;
+                    ++p;
+                }
+                if (number >= 0)
+                {
+                    // 1.
+                    *p = (char)(number + 48);
+                    ++p;
+                }
+                *p = '\0';
+            }
+        }
+
+        /// <summary>
+        /// <para>Manipulates an existing string to convert an unsigned integer, while avoiding expensive memory allocations.</para>
+        /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
+        /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
+        /// </summary>
+        public static unsafe void UintToStringNoAlloc(ref string mutable, uint number)
+        {
+            fixed (char* cPointer = mutable)
+            {
+                char* p = cPointer;
+
+                // Listed in the comments is the digit's place
+                if (number >= 1000000000)
+                {
+                    // 10.
+                    *p = (char)((number / 1000000000) + 48);
+                    number %= 1000000000;
+                    ++p;
+                }
+                if (number >= 100000000)
+                {
+                    // 9.
+                    *p = (char)((number / 100000000) + 48);
+                    number %= 100000000;
+                    ++p;
+                }
+                if (number >= 10000000)
+                {
+                    // 8.
+                    *p = (char)((number / 10000000) + 48);
+                    number %= 10000000;
+                    ++p;
+                }
+                if (number >= 1000000)
+                {
+                    // 7.
+                    *p = (char)((number / 1000000) + 48);
+                    number %= 1000000;
+                    ++p;
+                }
+                if (number >= 100000)
+                {
+                    // 6.
+                    *p = (char)((number / 100000) + 48);
+                    number %= 100000;
+                    ++p;
+                }
+                if (number >= 10000)
+                {
+                    // 5.
+                    *p = (char)((number / 10000) + 48);
+                    number %= 10000;
+                    ++p;
+                }
+                if (number >= 1000)
+                {
+                    // 4.
+                    *p = (char)((number / 1000) + 48);
+                    number %= 1000;
+                    ++p;
+                }
+                if (number >= 100)
+                {
+                    // 3.
+                    *p = (char)((number / 100) + 48);
+                    number %= 100;
+                    ++p;
+                }
+                if (number >= 10)
+                {
+                    // 2.
+                    *p = (char)((number / 10) + 48);
+                    number %= 10;
+                    ++p;
+                }
+                if (number >= 0)
+                {
+                    // 1.
+                    *p = (char)(number + 48);
+                    ++p;
+                }
+                *p = '\0';
+            }
+        }
+
+        /// <summary>
+        /// <para>Manipulates an existing string to convert a 64-bit integer, while avoiding expensive memory allocations.</para>
+        /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
+        /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
+        /// </summary>
+        public static unsafe void LongToStringNoAlloc(ref string mutable, long number)
+        {
+            fixed (char* cPointer = mutable)
+            {
+                char* p = cPointer;
+
+                // Account for negative range
+                if (number < 0)
+                {
+                    *p = '-';
+                    ++p;
+                }
+
+                // Listed in the comments is the digit's place
+                if (number >= 1000000000000000000L)
+                {
+                    // 19.
+                    *p = (char)((number / 1000000000000000000L) + 48L);
+                    number %= 1000000000000000000L;
+                    ++p;
+                }
+                if (number >= 100000000000000000L)
+                {
+                    // 18.
+                    *p = (char)((number / 100000000000000000L) + 48L);
+                    number %= 100000000000000000L;
+                    ++p;
+                }
+                if (number >= 10000000000000000L)
+                {
+                    // 17.
+                    *p = (char)((number / 10000000000000000L) + 48L);
+                    number %= 10000000000000000L;
+                    ++p;
+                }
+                if (number >= 1000000000000000L)
+                {
+                    // 16.
+                    *p = (char)((number / 1000000000000000L) + 48L);
+                    number %= 1000000000000000L;
+                    ++p;
+                }
+                if (number >= 100000000000000L)
+                {
+                    // 15.
+                    *p = (char)((number / 100000000000000L) + 48L);
+                    number %= 100000000000000L;
+                    ++p;
+                }
+                if (number >= 10000000000000L)
+                {
+                    // 14.
+                    *p = (char)((number / 10000000000000L) + 48L);
+                    number %= 10000000000000L;
+                    ++p;
+                }
+                if (number >= 1000000000000L)
+                {
+                    // 13.
+                    *p = (char)((number / 1000000000000L) + 48L);
+                    number %= 1000000000000L;
+                    ++p;
+                }
+                if (number >= 100000000000L)
+                {
+                    // 12.
+                    *p = (char)((number / 100000000000L) + 48L);
+                    number %= 100000000000L;
+                    ++p;
+                }
+                if (number >= 10000000000L)
+                {
+                    // 11.
+                    *p = (char)((number / 10000000000L) + 48L);
+                    number %= 10000000000L;
+                    ++p;
+                }
+                if (number >= 1000000000L)
+                {
+                    // 10.
+                    *p = (char)((number / 1000000000L) + 48L);
+                    number %= 1000000000L;
+                    ++p;
+                }
+                if (number >= 100000000L)
+                {
+                    // 9.
+                    *p = (char)((number / 100000000L) + 48L);
+                    number %= 100000000L;
+                    ++p;
+                }
+                if (number >= 10000000L)
+                {
+                    // 8.
+                    *p = (char)((number / 10000000L) + 48L);
+                    number %= 10000000L;
+                    ++p;
+                }
+                if (number >= 1000000L)
+                {
+                    // 7.
+                    *p = (char)((number / 1000000L) + 48L);
+                    number %= 1000000L;
+                    ++p;
+                }
+                if (number >= 100000L)
+                {
+                    // 6.
+                    *p = (char)((number / 100000L) + 48L);
+                    number %= 100000L;
+                    ++p;
+                }
+                if (number >= 10000L)
+                {
+                    // 5.
+                    *p = (char)((number / 10000L) + 48L);
+                    number %= 10000L;
+                    ++p;
+                }
+                if (number >= 1000L)
+                {
+                    // 4.
+                    *p = (char)((number / 1000L) + 48L);
+                    number %= 1000L;
+                    ++p;
+                }
+                if (number >= 100L)
+                {
+                    // 3.
+                    *p = (char)((number / 100L) + 48L);
+                    number %= 100L;
+                    ++p;
+                }
+                if (number >= 10L)
+                {
+                    // 2.
+                    *p = (char)((number / 10L) + 48L);
+                    number %= 10L;
+                    ++p;
+                }
+                if (number >= 0L)
+                {
+                    // 1.
+                    *p = (char)(number + 48L);
+                    ++p;
+                }
+                *p = '\0';
+            }
+        }
+
+        /// <summary>
+        /// <para>Manipulates an existing string to convert a 64-bit integer, while avoiding expensive memory allocations.</para>
+        /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
+        /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
+        /// </summary>
+        public static unsafe void UlongToStringNoAlloc(ref string mutable, ulong number)
+        {
+            fixed (char* cPointer = mutable)
+            {
+                char* p = cPointer;
+
+                // Listed in the comments is the digit's place
+                if (number >= 10000000000000000000UL)
+                {
+                    // 20.
+                    *p = (char)((number / 10000000000000000000UL) + 48UL);
+                    number %= 10000000000000000000UL;
+                    ++p;
+                }
+                if (number >= 1000000000000000000L)
+                {
+                    // 19.
+                    *p = (char)((number / 1000000000000000000L) + 48L);
+                    number %= 1000000000000000000L;
+                    ++p;
+                }
+                if (number >= 100000000000000000L)
+                {
+                    // 18.
+                    *p = (char)((number / 100000000000000000L) + 48L);
+                    number %= 100000000000000000L;
+                    ++p;
+                }
+                if (number >= 10000000000000000L)
+                {
+                    // 17.
+                    *p = (char)((number / 10000000000000000L) + 48L);
+                    number %= 10000000000000000L;
+                    ++p;
+                }
+                if (number >= 1000000000000000L)
+                {
+                    // 16.
+                    *p = (char)((number / 1000000000000000L) + 48L);
+                    number %= 1000000000000000L;
+                    ++p;
+                }
+                if (number >= 100000000000000L)
+                {
+                    // 15.
+                    *p = (char)((number / 100000000000000L) + 48L);
+                    number %= 100000000000000L;
+                    ++p;
+                }
+                if (number >= 10000000000000L)
+                {
+                    // 14.
+                    *p = (char)((number / 10000000000000L) + 48L);
+                    number %= 10000000000000L;
+                    ++p;
+                }
+                if (number >= 1000000000000L)
+                {
+                    // 13.
+                    *p = (char)((number / 1000000000000L) + 48L);
+                    number %= 1000000000000L;
+                    ++p;
+                }
+                if (number >= 100000000000L)
+                {
+                    // 12.
+                    *p = (char)((number / 100000000000L) + 48L);
+                    number %= 100000000000L;
+                    ++p;
+                }
+                if (number >= 10000000000L)
+                {
+                    // 11.
+                    *p = (char)((number / 10000000000L) + 48L);
+                    number %= 10000000000L;
+                    ++p;
+                }
+                if (number >= 1000000000L)
+                {
+                    // 10.
+                    *p = (char)((number / 1000000000L) + 48L);
+                    number %= 1000000000L;
+                    ++p;
+                }
+                if (number >= 100000000L)
+                {
+                    // 9.
+                    *p = (char)((number / 100000000L) + 48L);
+                    number %= 100000000L;
+                    ++p;
+                }
+                if (number >= 10000000L)
+                {
+                    // 8.
+                    *p = (char)((number / 10000000L) + 48L);
+                    number %= 10000000L;
+                    ++p;
+                }
+                if (number >= 1000000L)
+                {
+                    // 7.
+                    *p = (char)((number / 1000000L) + 48L);
+                    number %= 1000000L;
+                    ++p;
+                }
+                if (number >= 100000L)
+                {
+                    // 6.
+                    *p = (char)((number / 100000L) + 48L);
+                    number %= 100000L;
+                    ++p;
+                }
+                if (number >= 10000L)
+                {
+                    // 5.
+                    *p = (char)((number / 10000L) + 48L);
+                    number %= 10000L;
+                    ++p;
+                }
+                if (number >= 1000L)
+                {
+                    // 4.
+                    *p = (char)((number / 1000L) + 48L);
+                    number %= 1000L;
+                    ++p;
+                }
+                if (number >= 100L)
+                {
+                    // 3.
+                    *p = (char)((number / 100L) + 48L);
+                    number %= 100L;
+                    ++p;
+                }
+                if (number >= 10L)
+                {
+                    // 2.
+                    *p = (char)((number / 10L) + 48L);
+                    number %= 10L;
+                    ++p;
+                }
+                if (number >= 0L)
+                {
+                    // 1.
+                    *p = (char)(number + 48L);
+                    ++p;
+                }
+                *p = '\0';
+            }
+        }
+
     }
 }
