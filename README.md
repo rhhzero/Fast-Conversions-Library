@@ -5,6 +5,7 @@ By: Roy Hwang
 
 Target Framework: .NET 4.6
 
+- Must have "allow unsafe code" enabled
 
 ===================================
 About:
@@ -33,7 +34,7 @@ your program will be accepting.  If you do not know, it is extremely trivial to
 add error checks to each of these methods yourself.
 
 Let me state it again: THERE ARE NO DEFAULT ERROR CHECKS! You should implement them yourself 
-in the likely event that you will need them. I feel it is better this way since you can implement 
+in the event that you need them. I feel it is better this way since you can implement 
 only what you require.
 
 Also, you'll find that some of the methods make use of the "[MethodImpl(MethodImplOptions.AggressiveInlining)]" hint. 
