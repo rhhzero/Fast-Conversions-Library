@@ -616,6 +616,7 @@ namespace FCL
             {
                 charArray[0] = '-';
                 ++index;
+                number *= -1L;
             }
 
             // Listed in the comments is the digit's place
@@ -850,6 +851,7 @@ namespace FCL
             {
                 charArray[0] = '-';
                 ++index;
+                number *= -1;
             }
 
             // Listed in the comments is the digit's place
@@ -940,6 +942,7 @@ namespace FCL
                 {
                     *p = '-';
                     ++p;
+                    number *= -1;
                 }
 
                 // Listed in the comments is the digit's place
@@ -1117,6 +1120,7 @@ namespace FCL
                 {
                     *p = '-';
                     ++p;
+                    number *= -1L;
                 }
 
                 // Listed in the comments is the digit's place
@@ -1410,6 +1414,8 @@ namespace FCL
                 *p = '\0';
             }
         }
+
+        
 
     }
 }
