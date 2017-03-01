@@ -40,7 +40,7 @@ namespace FCL
     /// <summary>
     /// Convert a number to another type.
     /// </summary>
-    public class NumberConvert
+    public static class NumberConvert
     {
 
         /// <summary>
