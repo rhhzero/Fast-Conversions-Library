@@ -932,7 +932,7 @@ namespace FCL
         /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
         /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
         /// </summary>
-        public static unsafe void IntToStringNoAlloc(ref string mutable, int number) {
+        public static unsafe void IntToStringNoAlloc(string mutable, int number) {
             fixed (char* cPointer = mutable)
             {
                 char* p = cPointer;
@@ -1024,7 +1024,7 @@ namespace FCL
         /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
         /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
         /// </summary>
-        public static unsafe void UintToStringNoAlloc(ref string mutable, uint number)
+        public static unsafe void UintToStringNoAlloc(string mutable, uint number)
         {
             fixed (char* cPointer = mutable)
             {
@@ -1109,7 +1109,7 @@ namespace FCL
         /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
         /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
         /// </summary>
-        public static unsafe void LongToStringNoAlloc(ref string mutable, long number)
+        public static unsafe void LongToStringNoAlloc(string mutable, long number)
         {
             fixed (char* cPointer = mutable)
             {
@@ -1265,7 +1265,7 @@ namespace FCL
         /// <para>WARNING: For the sake of performance, no error checks are implemented. If you have no guarantee that the 
         /// supplied string can fit the number of digits + 1 (for terminator), add your own error check!</para>
         /// </summary>
-        public static unsafe void UlongToStringNoAlloc(ref string mutable, ulong number)
+        public static unsafe void UlongToStringNoAlloc(string mutable, ulong number)
         {
             fixed (char* cPointer = mutable)
             {
