@@ -7,9 +7,9 @@ Target Framework: .NET 4.6
 
 - Must have "allow unsafe code" enabled
 
-========================================
+================
 About:
-========================================
+================
 
 This is the Fast Conversions Library, or FCL! The primary purpose of this 
 library is to allow for type conversions without needless allocations, and providing 
